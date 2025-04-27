@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacred Scroll Activation</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #activate-scroll {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    #activate-scroll img {
+      width: 300px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    #activate-scroll:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<button id="activate-scroll">
+  <img src="https://raw.githubusercontent.com/nickdavidnodoubt/velseya-scroll-activation/main/velseya-scroll-activation-button.png" alt="Activate the Scroll">
+</button>
+
+<script>
+  document.getElementById('activate-scroll').addEventListener('click', function() {
+    fetch('https://hook.us2.make.com/r85n7ys6eclbct1x6xjsk88illailyxw', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ trigger: 'activate_scroll' })
+    })
+    .then(response => {
+      if(response.ok) {
+        alert('Sacred Scroll Activated! ✨📜🔥');
+      } else {
+        alert('Failed to activate the Scroll.');
+      }
+    })
+    .catch(error => {
+      console.error('Error activating scroll:', error);
+      alert('An error occurred.');
+    });
+  });
+</script>
+
+</body>
+</html>
